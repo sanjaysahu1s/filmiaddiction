@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmiAddiction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #ff6f61;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .search {
+            margin-bottom: 20px;
+        }
+        .search input {
+            width: calc(100% - 40px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .categories {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .category {
+            flex: 1;
+            margin: 10px;
+            padding: 15px;
+            background-color: #ffe0b2;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .category a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #ff6f61;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .ad-space {
+            height: 100px;
+            background: #ddd;
+            margin: 20px 0;
+            text-align: center;
+            line-height: 100px;
+            color: #666;
+            border: 2px dashed #bbb;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to FilmiAddiction</h1>
+        <p>Your ultimate destination for Bollywood, Hollywood, and Web Series!</p>
+    </div>
+
+    <div class="container">
+        <div class="search">
+            <label for="post-number">Search by Post Number:</label>
+            <input type="text" id="post-number" placeholder="Enter Instagram Post Number">
+
+            <label for="search-name">Search by Name:</label>
+            <input type="text" id="search-name" placeholder="Enter Movie or Web Series Name">
+        </div>
+
+        <div class="categories">
+            <div class="category">
+                <h3>Bollywood</h3>
+                <a href="https://example.com/bollywood-movie1" target="_blank">Bollywood Movie 1</a><br>
+                <a href="https://example.com/bollywood-movie2" target="_blank">Bollywood Movie 2</a>
+            </div>
+            <div class="category">
+                <h3>Hollywood</h3>
+                <a href="https://example.com/hollywood-movie1" target="_blank">Hollywood Movie 1</a><br>
+                <a href="https://example.com/hollywood-movie2" target="_blank">Hollywood Movie 2</a>
+            </div>
+            <div class="category">
+                <h3>Web Series</h3>
+                <a href="https://example.com/webseries1" target="_blank">Web Series 1</a><br>
+                <a href="https://example.com/webseries2" target="_blank">Web Series 2</a>
+            </div>
+        </div>
+
+        <div class="ad-space">
+            Future Ad Space (Insert Ads Here)
+        </div>
+
+        <div class="ad-space">
+            Future Ad Space (Insert Ads Here)
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 FilmiAddiction. All Rights Reserved.</p>
+    </div>
+</body>
+</html>
