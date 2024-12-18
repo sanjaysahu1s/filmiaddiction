@@ -9,12 +9,12 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+            background: linear-gradient(to bottom, #f8c8a3, #f1b6a4); /* Soft peachy gradient */
         }
         .header {
             text-align: center;
             padding: 20px;
-            background-color: #ff6f61;
+            background-color: #ff4b5c; /* Rich coral */
             color: white;
         }
         .container {
@@ -44,7 +44,7 @@
             flex: 1;
             margin: 10px;
             padding: 15px;
-            background-color: #ffe0b2;
+            background-color: #ffd7b5; /* Soft pastel yellow */
             text-align: center;
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -57,7 +57,7 @@
         .footer {
             text-align: center;
             padding: 10px;
-            background-color: #ff6f61;
+            background-color: #ff4b5c; /* Matching coral */
             color: white;
             position: fixed;
             bottom: 0;
@@ -65,12 +65,39 @@
         }
         .ad-space {
             height: 100px;
-            background: #ddd;
+            background: #f5d3c4; /* Light peach */
             margin: 20px 0;
             text-align: center;
             line-height: 100px;
             color: #666;
             border: 2px dashed #bbb;
+        }
+        .video-ad-space {
+            width: 100%;
+            height: 250px; /* Adjust the height for the video ad */
+            background-color: #ddd;
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 250px;
+            color: #666;
+            border: 2px dashed #bbb;
+        }
+        /* Optional: Loading spinner for video ad */
+        .loading-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -107,6 +134,23 @@
             </div>
         </div>
 
+        <!-- Video Ad Space (Ad Network Integration) -->
+        <div class="video-ad-space" id="video-ad-container">
+            <div class="loading-spinner"></div> <!-- Placeholder Spinner -->
+            <!-- Insert Ad Network Script Here -->
+            <script async src="https://your-ad-network.com/video-ad-script.js"></script>
+            <script>
+                // Example script for displaying the ad
+                window.onload = function() {
+                    // Dynamically load the ad when the page is loaded
+                    var adContainer = document.getElementById('video-ad-container');
+                    // The ad network script will auto-insert the ad here
+                    // You can add additional handling or configurations if needed
+                };
+            </script>
+        </div>
+
+        <!-- Other Ad Spaces -->
         <div class="ad-space">
             Future Ad Space (Insert Ads Here)
         </div>
