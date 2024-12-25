@@ -3,147 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FilmiAddiction</title>
+    <meta name="description" content="Ad-supported page with countdown timer and link to TeraBox">
+    <title>Ad Timer Page</title>
     <style>
+        /* Basic styling for the body to center content and apply font */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #f8c8a3, #f1b6a4); /* Soft peachy gradient */
-        }
-        .header {
             text-align: center;
-            padding: 20px;
-            background-color: #ff4b5c; /* Rich coral */
-            color: white;
         }
+
+        /* Container to center all the content within a specific width */
         .container {
             max-width: 800px;
-            margin: 20px auto;
+            margin: 0 auto;
             padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        .search {
-            margin-bottom: 20px;
-        }
-        .search input {
-            width: calc(100% - 40px);
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .categories {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        .category {
-            flex: 1;
-            margin: 10px;
-            padding: 15px;
-            background-color: #ffd7b5; /* Soft pastel yellow */
-            text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .category a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
-        .footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #ff4b5c; /* Matching coral */
-            color: white;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        .ad-space {
-            height: 100px;
-            background: #f5d3c4; /* Light peach */
+
+        /* Styling for ad blocks */
+        .ad {
             margin: 20px 0;
-            text-align: center;
-            line-height: 100px;
-            color: #666;
-            border: 2px dashed #bbb;
+            padding: 10px;
+            background-color: #f7f7f7;
+            border: 1px solid #ddd;
+            height: 100px;
         }
-        .video-ad-space {
-            width: 100%;
-            height: 250px; /* Adjust the height for the video ad */
-            background-color: #ddd;
-            margin-bottom: 20px;
-            text-align: center;
-            line-height: 250px;
-            color: #666;
-            border: 2px dashed #bbb;
+
+        /* Countdown timer text styling */
+        #countdown {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        /* Notice that appears after countdown ends */
+        #scroll-notice {
+            margin: 40px 0;
+            font-size: 18px;
+            color: #333;
+            display: none; /* Initially hidden */
+        }
+
+        /* Button to continue after scrolling */
+        #continue-button {
+            display: none; /* Initially hidden */
+            margin: 20px 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Button hover effect */
+        #continue-button:hover {
+            background-color: #218838;
+        }
+
+        /* Footer styling */
+        footer {
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
+    <script>
+        let countdown = 60; // Initial countdown value in seconds
+
+        function startCountdown() {
+            // Start a countdown timer that updates every second
+            const timer = setInterval(() => {
+                // Update the countdown text
+                document.getElementById('countdown').textContent = `Please wait ${countdown} seconds...`;
+                countdown--;
+
+                if (countdown < 0) {
+                    // Stop the timer when countdown reaches zero
+                    clearInterval(timer);
+
+                    // Hide the countdown text and show the scroll notice
+                    document.getElementById('countdown').style.display = 'none';
+                    document.getElementById('scroll-notice').style.display = 'block';
+                }
+            }, 1000); // Run every 1000 milliseconds (1 second)
+        }
+
+        function showContinueButton() {
+            // Display the continue button when called
+            document.getElementById('continue-button').style.display = 'block';
+        }
+    </script>
 </head>
-<body>
-    <div class="header">
-        <h1>Welcome to FilmiAddiction</h1>
-        <p>Your ultimate destination for Bollywood, Hollywood, and Web Series!</p>
-    </div>
-
+<body onload="startCountdown()"> <!-- Start the countdown when the page loads -->
     <div class="container">
-        <div class="search">
-            <label for="post-number">Search by Post Number:</label>
-            <input type="text" id="post-number" placeholder="Enter Instagram Post Number">
+        <!-- Placeholder for the first ad banner -->
+        <div class="ad">Ad Banner 1 (e.g., Google AdSense)</div>
 
-            <label for="search-name">Search by Name:</label>
-            <input type="text" id="search-name" placeholder="Enter Movie or Web Series Name">
-        </div>
+        <!-- Countdown timer text -->
+        <div id="countdown">Please wait 60 seconds...</div>
 
-        <div class="categories">
-            <div class="category">
-                <h3>Bollywood</h3>
-                <a href="https://example.com/bollywood-movie1" target="_blank">Bollywood Movie 1</a><br>
-                <a href="https://example.com/bollywood-movie2" target="_blank">Bollywood Movie 2</a>
-            </div>
-            <div class="category">
-                <h3>Hollywood</h3>
-                <a href="https://example.com/hollywood-movie1" target="_blank">Hollywood Movie 1</a><br>
-                <a href="https://example.com/hollywood-movie2" target="_blank">Hollywood Movie 2</a>
-            </div>
-            <div class="category">
-                <h3>Web Series</h3>
-                <a href="https://example.com/webseries1" target="_blank">Web Series 1</a><br>
-                <a href="https://example.com/webseries2" target="_blank">Web Series 2</a>
-            </div>
-        </div>
+        <!-- Scroll notice that appears after the countdown ends -->
+        <div id="scroll-notice">Scroll down to continue...</div>
 
-        <!-- Video Ad Space (Ad Network Integration) -->
-        <div class="video-ad-space" id="video-ad-container">
-            <!-- Insert Ad Network Script Here -->
-            <script async src="https://your-ad-network.com/video-ad-script.js"></script>
-            <script>
-                // Example script for displaying the ad
-                window.onload = function() {
-                    // Dynamically load the ad when the page is loaded
-                    var adContainer = document.getElementById('video-ad-container');
-                    // The ad network script will auto-insert the ad here
-                    // You can add additional handling or configurations if needed
-                };
-            </script>
-        </div>
+        <!-- Placeholder for the second ad banner -->
+        <div class="ad">Ad Banner 2 (e.g., Video Ad)</div>
 
-        <!-- Other Ad Spaces -->
-        <div class="ad-space">
-            Future Ad Space (Insert Ads Here)
-        </div>
+        <!-- Button to continue to the target page, initially hidden -->
+        <button id="continue-button" onclick="location.href='https://www.terabox.com';">Continue to TeraBox</button>
 
-        <div class="ad-space">
-            Future Ad Space (Insert Ads Here)
-        </div>
+        <!-- Placeholder for the third ad banner -->
+        <div class="ad">Ad Banner 3 (e.g., Sponsored Content)</div>
     </div>
 
-    <div class="footer">
-        <p>&copy; 2024 FilmiAddiction. All Rights Reserved.</p>
-    </div>
+    <footer>
+        <!-- Footer content with a link to the website -->
+        <p>Powered by Your Website. Visit <a href="https://yourwebsite.com">Our Site</a> for more.</p>
+    </footer>
+
+    <script>
+        // Add an event listener to detect when the user scrolls
+        window.addEventListener('scroll', () => {
+            // Calculate the total scrollable height
+            const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+            // Get the current scroll position
+            const scrolled = window.scrollY;
+
+            // If the user has scrolled near the bottom of the page, show the continue button
+            if (scrolled >= scrollableHeight - 100) {
+                showContinueButton();
+            }
+        });
+    </script>
 </body>
 </html>
