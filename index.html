@@ -3,68 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ad-supported page with countdown timer and link to TeraBox">
-    <title>Ad Timer Page</title>
+    <meta name="description" content="Tech Articles, Latest Technology News, Reviews, Tips and Guides">
+    <title>Tech Connection - Latest Technology Articles</title>
     <style>
-        /* Basic styling for the body to center content and apply font */
+        /* Basic reset and font styling */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
+            color: #333;
+            background-color: #f4f4f4;
         }
 
-        /* Container to center all the content within a specific width */
+        /* Main container to center content */
         .container {
-            max-width: 800px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Styling for ad blocks */
+        /* Header styling */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            color: #333;
+        }
+
+        /* Article styling */
+        .article {
+            margin-bottom: 40px;
+        }
+
+        .article h2 {
+            font-size: 28px;
+            color: #1a73e8;
+            margin-bottom: 10px;
+        }
+
+        .article p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Ad blocks for banners */
         .ad {
             margin: 20px 0;
-            padding: 10px;
+            padding: 20px;
             background-color: #f7f7f7;
             border: 1px solid #ddd;
-            height: 100px;
-        }
-
-        /* Countdown timer text styling */
-        #countdown {
-            font-size: 24px;
-            font-weight: bold;
-            margin: 20px 0;
-        }
-
-        /* Notice that appears after countdown ends */
-        #scroll-notice {
-            margin: 40px 0;
+            text-align: center;
             font-size: 18px;
-            color: #333;
-            display: none; /* Initially hidden */
-        }
-
-        /* Button to continue after scrolling */
-        #continue-button {
-            display: none; /* Initially hidden */
-            margin: 20px 0;
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        /* Button hover effect */
-        #continue-button:hover {
-            background-color: #218838;
+            color: #888;
         }
 
         /* Footer styling */
         footer {
             margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
         }
 
         footer a {
@@ -75,69 +78,90 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Button to continue after ad */
+        .continue-button {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .continue-button:hover {
+            background-color: #218838;
+        }
+
     </style>
     <script>
-        let countdown = 60; // Initial countdown value in seconds
+        let countdown = 60;
 
         function startCountdown() {
-            // Start a countdown timer that updates every second
             const timer = setInterval(() => {
-                // Update the countdown text
                 document.getElementById('countdown').textContent = `Please wait ${countdown} seconds...`;
                 countdown--;
 
                 if (countdown < 0) {
-                    // Stop the timer when countdown reaches zero
                     clearInterval(timer);
-
-                    // Hide the countdown text and show the scroll notice
                     document.getElementById('countdown').style.display = 'none';
                     document.getElementById('scroll-notice').style.display = 'block';
                 }
-            }, 1000); // Run every 1000 milliseconds (1 second)
+            }, 1000);
         }
 
         function showContinueButton() {
-            // Display the continue button when called
             document.getElementById('continue-button').style.display = 'block';
         }
+
     </script>
 </head>
-<body onload="startCountdown()"> <!-- Start the countdown when the page loads -->
+<body onload="startCountdown()">
     <div class="container">
-        <!-- Placeholder for the first ad banner -->
-        <div class="ad">Ad Banner 1 (e.g., Google AdSense)</div>
+        <!-- Header Section -->
+        <header>
+            <h1>Tech Connection</h1>
+            <p>Your source for the latest in technology news, reviews, and guides.</p>
+        </header>
 
-        <!-- Countdown timer text -->
+        <!-- Article Section with Content and Ads -->
+        <div class="article">
+            <h2>The Ultimate Guide to Web Development</h2>
+            <p>In today's fast-paced world, web development is a highly sought-after skill. Whether you're looking to build a personal website, an e-commerce platform, or even a web application, understanding the basics of web development is essential.</p>
+            
+            <div class="ad">Ad Banner 1 (e.g., Google AdSense)</div>
+
+            <p>Web development is a broad field that includes frontend and backend development. Frontend development focuses on what users see, while backend development focuses on how the website functions behind the scenes.</p>
+            
+            <div class="ad">Ad Banner 2 (e.g., Video Ad)</div>
+
+            <p>The tools and technologies used in web development are constantly evolving. Currently, some of the most popular languages for web development include HTML, CSS, JavaScript, and PHP.</p>
+
+            <div class="ad">Ad Banner 3 (e.g., Sponsored Content)</div>
+
+            <p>In this guide, we’ll cover the most important aspects of web development, from understanding HTML to building dynamic websites using JavaScript and integrating with databases using PHP.</p>
+        </div>
+
+        <!-- Countdown Timer and Scroll Notice -->
         <div id="countdown">Please wait 60 seconds...</div>
+        <div id="scroll-notice" style="display:none;">Scroll down to continue...</div>
 
-        <!-- Scroll notice that appears after the countdown ends -->
-        <div id="scroll-notice">Scroll down to continue...</div>
+        <!-- Continue Button -->
+        <button id="continue-button" onclick="location.href='https://www.terabox.com';" class="continue-button">Continue to TeraBox</button>
 
-        <!-- Placeholder for the second ad banner -->
-        <div class="ad">Ad Banner 2 (e.g., Video Ad)</div>
-
-        <!-- Button to continue to the target page, initially hidden -->
-        <button id="continue-button" onclick="location.href='https://www.terabox.com';">Continue to TeraBox</button>
-
-        <!-- Placeholder for the third ad banner -->
-        <div class="ad">Ad Banner 3 (e.g., Sponsored Content)</div>
+        <!-- Footer Section -->
+        <footer>
+            <p>Powered by Tech Connection. Visit <a href="https://yourwebsite.com">Our Site</a> for more.</p>
+        </footer>
     </div>
 
-    <footer>
-        <!-- Footer content with a link to the website -->
-        <p>Powered by Your Website. Visit <a href="https://yourwebsite.com">Our Site</a> for more.</p>
-    </footer>
-
     <script>
-        // Add an event listener to detect when the user scrolls
         window.addEventListener('scroll', () => {
-            // Calculate the total scrollable height
             const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-            // Get the current scroll position
             const scrolled = window.scrollY;
 
-            // If the user has scrolled near the bottom of the page, show the continue button
             if (scrolled >= scrollableHeight - 100) {
                 showContinueButton();
             }
